@@ -16,5 +16,15 @@ namespace JobApplicationTracker
         {
             InitializeComponent();
         }
+
+        private void BackToJobApplicationsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditJobApplicationBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.OfferedOptionBtn = new System.Windows.Forms.Button();
+            this.InterviewedOptionBtn = new System.Windows.Forms.Button();
+            this.AppliedOptionBtn = new System.Windows.Forms.Button();
+            this.RejectedOptionBtn = new System.Windows.Forms.Button();
+            this.BackToHomePageBtn = new System.Windows.Forms.Button();
+            this.GoToJobApplicationsBtn = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
@@ -50,68 +50,70 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.OfferedOptionBtn);
+            this.panel1.Controls.Add(this.InterviewedOptionBtn);
+            this.panel1.Controls.Add(this.AppliedOptionBtn);
+            this.panel1.Controls.Add(this.RejectedOptionBtn);
             this.panel1.Location = new System.Drawing.Point(322, 378);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(164, 60);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // OfferedOptionBtn
             // 
-            this.button4.Location = new System.Drawing.Point(84, 32);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Offered";
-            this.button4.UseVisualStyleBackColor = true;
+            this.OfferedOptionBtn.Location = new System.Drawing.Point(84, 32);
+            this.OfferedOptionBtn.Name = "OfferedOptionBtn";
+            this.OfferedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.OfferedOptionBtn.TabIndex = 3;
+            this.OfferedOptionBtn.Text = "Offered";
+            this.OfferedOptionBtn.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // InterviewedOptionBtn
             // 
-            this.button3.Location = new System.Drawing.Point(3, 32);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Interviewed";
-            this.button3.UseVisualStyleBackColor = true;
+            this.InterviewedOptionBtn.Location = new System.Drawing.Point(3, 32);
+            this.InterviewedOptionBtn.Name = "InterviewedOptionBtn";
+            this.InterviewedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.InterviewedOptionBtn.TabIndex = 2;
+            this.InterviewedOptionBtn.Text = "Interviewed";
+            this.InterviewedOptionBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // AppliedOptionBtn
             // 
-            this.button2.Location = new System.Drawing.Point(84, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Applied";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AppliedOptionBtn.Location = new System.Drawing.Point(84, 3);
+            this.AppliedOptionBtn.Name = "AppliedOptionBtn";
+            this.AppliedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.AppliedOptionBtn.TabIndex = 1;
+            this.AppliedOptionBtn.Text = "Applied";
+            this.AppliedOptionBtn.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // RejectedOptionBtn
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Rejected";
-            this.button1.UseVisualStyleBackColor = true;
+            this.RejectedOptionBtn.Location = new System.Drawing.Point(3, 3);
+            this.RejectedOptionBtn.Name = "RejectedOptionBtn";
+            this.RejectedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.RejectedOptionBtn.TabIndex = 0;
+            this.RejectedOptionBtn.Text = "Rejected";
+            this.RejectedOptionBtn.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // BackToHomePageBtn
             // 
-            this.button5.Location = new System.Drawing.Point(12, 390);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(108, 48);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Back to home page";
-            this.button5.UseVisualStyleBackColor = true;
+            this.BackToHomePageBtn.Location = new System.Drawing.Point(12, 390);
+            this.BackToHomePageBtn.Name = "BackToHomePageBtn";
+            this.BackToHomePageBtn.Size = new System.Drawing.Size(108, 48);
+            this.BackToHomePageBtn.TabIndex = 1;
+            this.BackToHomePageBtn.Text = "Back to home page";
+            this.BackToHomePageBtn.UseVisualStyleBackColor = true;
+            this.BackToHomePageBtn.Click += new System.EventHandler(this.BackToHomePageBtn_Click);
             // 
-            // button6
+            // GoToJobApplicationsBtn
             // 
-            this.button6.Location = new System.Drawing.Point(680, 390);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(108, 48);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Go to job applications";
-            this.button6.UseVisualStyleBackColor = true;
+            this.GoToJobApplicationsBtn.Location = new System.Drawing.Point(680, 390);
+            this.GoToJobApplicationsBtn.Name = "GoToJobApplicationsBtn";
+            this.GoToJobApplicationsBtn.Size = new System.Drawing.Size(108, 48);
+            this.GoToJobApplicationsBtn.TabIndex = 2;
+            this.GoToJobApplicationsBtn.Text = "Go to job applications";
+            this.GoToJobApplicationsBtn.UseVisualStyleBackColor = true;
+            this.GoToJobApplicationsBtn.Click += new System.EventHandler(this.GoToJobApplicationsBtn_Click);
             // 
             // progressBar1
             // 
@@ -122,30 +124,30 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Rejected";
-            series1.Points.Add(dataPoint1);
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Applied";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Interviewed";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Offered";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series13.ChartArea = "ChartArea1";
+            series13.Legend = "Legend1";
+            series13.Name = "Rejected";
+            series13.Points.Add(dataPoint4);
+            series13.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series14.ChartArea = "ChartArea1";
+            series14.Legend = "Legend1";
+            series14.Name = "Applied";
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Interviewed";
+            series16.ChartArea = "ChartArea1";
+            series16.Legend = "Legend1";
+            series16.Name = "Offered";
+            this.chart1.Series.Add(series13);
+            this.chart1.Series.Add(series14);
+            this.chart1.Series.Add(series15);
+            this.chart1.Series.Add(series16);
             this.chart1.Size = new System.Drawing.Size(800, 344);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -157,8 +159,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.GoToJobApplicationsBtn);
+            this.Controls.Add(this.BackToHomePageBtn);
             this.Controls.Add(this.panel1);
             this.Name = "VisualChart";
             this.Text = "VisualChart";
@@ -171,12 +173,12 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button OfferedOptionBtn;
+        private System.Windows.Forms.Button InterviewedOptionBtn;
+        private System.Windows.Forms.Button AppliedOptionBtn;
+        private System.Windows.Forms.Button RejectedOptionBtn;
+        private System.Windows.Forms.Button BackToHomePageBtn;
+        private System.Windows.Forms.Button GoToJobApplicationsBtn;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }

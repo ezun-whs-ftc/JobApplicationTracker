@@ -28,29 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BackToVisualChartBtn = new System.Windows.Forms.Button();
+            this.AddApplicationBtn = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // BackToVisualChartBtn
             // 
-            this.button1.Location = new System.Drawing.Point(12, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Back to Visual Chart";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BackToVisualChartBtn.Location = new System.Drawing.Point(12, 394);
+            this.BackToVisualChartBtn.Name = "BackToVisualChartBtn";
+            this.BackToVisualChartBtn.Size = new System.Drawing.Size(122, 23);
+            this.BackToVisualChartBtn.TabIndex = 0;
+            this.BackToVisualChartBtn.Text = "Back to Visual Chart";
+            this.BackToVisualChartBtn.UseVisualStyleBackColor = true;
+            this.BackToVisualChartBtn.Click += new System.EventHandler(this.BackToVisualChartBtn_Click);
             // 
-            // button2
+            // AddApplicationBtn
             // 
-            this.button2.Location = new System.Drawing.Point(666, 394);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add application";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AddApplicationBtn.Location = new System.Drawing.Point(666, 394);
+            this.AddApplicationBtn.Name = "AddApplicationBtn";
+            this.AddApplicationBtn.Size = new System.Drawing.Size(122, 23);
+            this.AddApplicationBtn.TabIndex = 1;
+            this.AddApplicationBtn.Text = "Add application";
+            this.AddApplicationBtn.UseVisualStyleBackColor = true;
+            this.AddApplicationBtn.Click += new System.EventHandler(this.AddApplicationBtn_Click);
             // 
             // listView1
             // 
@@ -77,8 +79,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddApplicationBtn);
+            this.Controls.Add(this.BackToVisualChartBtn);
             this.Name = "JobApplications";
             this.Text = "JobApplications";
             this.ResumeLayout(false);
@@ -87,8 +89,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BackToVisualChartBtn;
+        private System.Windows.Forms.Button AddApplicationBtn;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label1;
     }

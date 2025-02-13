@@ -38,8 +38,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BackToJobApplicationsBtn = new System.Windows.Forms.Button();
+            this.EditApplicationBtn = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -127,31 +127,33 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Reminders:";
             // 
-            // button1
+            // BackToJobApplicationsBtn
             // 
-            this.button1.Location = new System.Drawing.Point(12, 396);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 42);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Back to Job Applications";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BackToJobApplicationsBtn.Location = new System.Drawing.Point(12, 396);
+            this.BackToJobApplicationsBtn.Name = "BackToJobApplicationsBtn";
+            this.BackToJobApplicationsBtn.Size = new System.Drawing.Size(124, 42);
+            this.BackToJobApplicationsBtn.TabIndex = 13;
+            this.BackToJobApplicationsBtn.Text = "Back to Job Applications";
+            this.BackToJobApplicationsBtn.UseVisualStyleBackColor = true;
+            this.BackToJobApplicationsBtn.Click += new System.EventHandler(this.BackToJobApplicationsBtn_Click);
             // 
-            // button2
+            // EditApplicationBtn
             // 
-            this.button2.Location = new System.Drawing.Point(664, 396);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 42);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Edit Application";
-            this.button2.UseVisualStyleBackColor = true;
+            this.EditApplicationBtn.Location = new System.Drawing.Point(664, 396);
+            this.EditApplicationBtn.Name = "EditApplicationBtn";
+            this.EditApplicationBtn.Size = new System.Drawing.Size(124, 42);
+            this.EditApplicationBtn.TabIndex = 14;
+            this.EditApplicationBtn.Text = "Edit Application";
+            this.EditApplicationBtn.UseVisualStyleBackColor = true;
+            this.EditApplicationBtn.Click += new System.EventHandler(this.EditJobApplicationBtn_Click);
             // 
             // ApplicationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.EditApplicationBtn);
+            this.Controls.Add(this.BackToJobApplicationsBtn);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.textBox3);
@@ -184,7 +186,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BackToJobApplicationsBtn;
+        private System.Windows.Forms.Button EditApplicationBtn;
     }
 }

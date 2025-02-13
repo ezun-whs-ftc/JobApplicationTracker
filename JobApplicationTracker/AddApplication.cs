@@ -16,5 +16,20 @@ namespace JobApplicationTracker
         {
             InitializeComponent();
         }
+
+
+        private void AddApplicationBtn_Click(object sender, EventArgs e)
+        {
+            ApplicationsTracker.applications.Add
+            (
+                new JobApplication(textBox1.Text, dateTimePicker1.Value)
+            );
+        }
+
+        private void BackToJobApplicationBtn_Click(object sender, EventArgs e)
+        {
+            Pages.navigate(this, "JobApplications");
+        }
+
     }
 }

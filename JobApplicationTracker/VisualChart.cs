@@ -16,5 +16,15 @@ namespace JobApplicationTracker
         {
             InitializeComponent();
         }
+
+        private void BackToHomePageBtn_Click(object sender, EventArgs e)
+        {
+            Pages.navigate(this, "Form1");
+        }
+
+        private void GoToJobApplicationsBtn_Click(object sender, EventArgs e)
+        {
+            Pages.navigate(this, "JobApplications");
+        }
     }
 }

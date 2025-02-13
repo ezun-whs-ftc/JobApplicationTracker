@@ -53,12 +53,16 @@
     <Compile Include="AddApplication.Designer.cs">
       <DependentUpon>AddApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationsTracker.cs" />
     <Compile Include="ApplicationView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationView.Designer.cs">
       <DependentUpon>ApplicationView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="JobApplication.cs" />
+    <Compile Include="Pages.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

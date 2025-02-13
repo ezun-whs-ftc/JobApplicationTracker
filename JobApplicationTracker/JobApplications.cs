@@ -16,5 +16,15 @@ namespace JobApplicationTracker
         {
             InitializeComponent();
         }
+
+        private void BackToVisualChartBtn_Click(object sender, EventArgs e)
+        {
+            Pages.navigate(this, "Visualchart");
+        }
+
+        private void AddApplicationBtn_Click(object sender, EventArgs e)
+        {
+            Pages.navigate(this, "AddApplication");
+        }
     }
 }
