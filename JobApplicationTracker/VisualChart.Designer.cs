@@ -1,4 +1,6 @@
-﻿namespace JobApplicationTracker
+﻿using static JobApplicationTracker.ApplicationsTracker;
+using static JobApplicationTracker.Constants;
+namespace JobApplicationTracker
 {
     partial class VisualChart
     {
@@ -28,13 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.OfferedOptionBtn = new System.Windows.Forms.Button();
             this.InterviewedOptionBtn = new System.Windows.Forms.Button();
@@ -67,6 +69,7 @@
             this.OfferedOptionBtn.TabIndex = 3;
             this.OfferedOptionBtn.Text = "Offered";
             this.OfferedOptionBtn.UseVisualStyleBackColor = true;
+            this.OfferedOptionBtn.Click += new System.EventHandler(this.OfferedOptionBtn_Click);
             // 
             // InterviewedOptionBtn
             // 
@@ -76,6 +79,7 @@
             this.InterviewedOptionBtn.TabIndex = 2;
             this.InterviewedOptionBtn.Text = "Interviewed";
             this.InterviewedOptionBtn.UseVisualStyleBackColor = true;
+            this.InterviewedOptionBtn.Click += new System.EventHandler(this.InterviewedOptionBtn_Click);
             // 
             // AppliedOptionBtn
             // 
@@ -85,6 +89,7 @@
             this.AppliedOptionBtn.TabIndex = 1;
             this.AppliedOptionBtn.Text = "Applied";
             this.AppliedOptionBtn.UseVisualStyleBackColor = true;
+            this.AppliedOptionBtn.Click += new System.EventHandler(this.AppliedOptionBtn_Click);
             // 
             // RejectedOptionBtn
             // 
@@ -94,6 +99,7 @@
             this.RejectedOptionBtn.TabIndex = 0;
             this.RejectedOptionBtn.Text = "Rejected";
             this.RejectedOptionBtn.UseVisualStyleBackColor = true;
+            this.RejectedOptionBtn.Click += new System.EventHandler(this.RejectedOptionBtn_Click);
             // 
             // BackToHomePageBtn
             // 
@@ -124,30 +130,30 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
-            series13.ChartArea = "ChartArea1";
-            series13.Legend = "Legend1";
-            series13.Name = "Rejected";
-            series13.Points.Add(dataPoint4);
-            series13.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series14.ChartArea = "ChartArea1";
-            series14.Legend = "Legend1";
-            series14.Name = "Applied";
-            series15.ChartArea = "ChartArea1";
-            series15.Legend = "Legend1";
-            series15.Name = "Interviewed";
-            series16.ChartArea = "ChartArea1";
-            series16.Legend = "Legend1";
-            series16.Name = "Offered";
-            this.chart1.Series.Add(series13);
-            this.chart1.Series.Add(series14);
-            this.chart1.Series.Add(series15);
-            this.chart1.Series.Add(series16);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Rejected";
+            series1.Points.Add(JobApplicationTracker.ApplicationsTracker.NumberOfApplications(Constants.Status.Rejected));
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Applied";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Interviewed";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Offered";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(800, 344);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";

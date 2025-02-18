@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JobApplicationTracker
 {
-    internal class Constants
+    class Constants
     {
        public enum Status
         {

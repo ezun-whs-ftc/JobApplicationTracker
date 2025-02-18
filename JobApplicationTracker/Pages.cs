@@ -13,7 +13,7 @@ namespace JobApplicationTracker
         private static readonly Dictionary<string, Form> pages = new Dictionary<String, Form>()
         {
             {"Homepage", new Form1() },
-            {"Visualchart", new VisualChart() },
+            {"VisualChart", new VisualChart() },
             {"JobApplications", new JobApplications() },
             {"ApplicationView", new ApplicationView() },
             {"AddApplication", new Add_Application() },

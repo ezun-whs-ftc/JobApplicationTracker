@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace JobApplicationTracker
 {
@@ -26,5 +27,27 @@ namespace JobApplicationTracker
         {
             Pages.navigate(this, "JobApplications");
         }
+
+        private void RejectedOptionBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AppliedOptionBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InterviewedOptionBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OfferedOptionBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

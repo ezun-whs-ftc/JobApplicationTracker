@@ -10,10 +10,10 @@ namespace JobApplicationTracker
     class JobApplication
     {
         private String companyName;
-        private System.DateTime DateApplied;
+        private DateTime DateApplied;
         private Status status;
 
-        public JobApplication(String companyName, System.DateTime DateApplied)
+        public JobApplication(String companyName, DateTime DateApplied)
         {
             this.companyName = companyName;
             this.DateApplied = DateApplied;
@@ -21,10 +21,10 @@ namespace JobApplicationTracker
         }
         public void SetStatus(Status x) => this.status = x;
         public Status GetStatus() => this.status;
-        public String SetCompanyName(String x) => this.companyName = x;
+        public void SetCompanyName(String x) => this.companyName = x;
         public String GetCompanyName() => this.companyName;
-        public String SetDateApplied(String x) => this.DateApplied = x;
-        public String GetDateApplied() => this.DateApplied;
+        public void SetDateApplied(DateTime x) => this.DateApplied = x;
+        public DateTime GetDateApplied() => this.DateApplied;
 
     }
 }
