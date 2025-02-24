@@ -17,15 +17,19 @@ namespace JobApplicationTracker
         {
             InitializeComponent();
         }
+        private void VisualChart_Load(object sender, EventArgs e)
+        {
+            
+        }
 
         private void BackToHomePageBtn_Click(object sender, EventArgs e)
         {
-            Pages.navigate(this, "Form1");
+            Constants.navigate(this, new Form1() );
         }
 
         private void GoToJobApplicationsBtn_Click(object sender, EventArgs e)
         {
-            Pages.navigate(this, "JobApplications");
+            Constants.navigate(this, new JobApplications() );
         }
 
         private void RejectedOptionBtn_Click(object sender, EventArgs e)

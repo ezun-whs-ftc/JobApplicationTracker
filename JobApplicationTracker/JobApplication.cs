@@ -13,11 +13,11 @@ namespace JobApplicationTracker
         private DateTime DateApplied;
         private Status status;
 
-        public JobApplication(String companyName, DateTime DateApplied)
+        public JobApplication(String companyName, DateTime DateApplied,Status status)
         {
             this.companyName = companyName;
             this.DateApplied = DateApplied;
-            this.status = Status.Applied;
+            this.status = status;
         }
         public void SetStatus(Status x) => this.status = x;
         public Status GetStatus() => this.status;

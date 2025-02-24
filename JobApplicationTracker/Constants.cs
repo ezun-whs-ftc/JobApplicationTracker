@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JobApplicationTracker
 {
-    class Constants
+    internal class Constants
     {
-       public enum Status
+        public enum Status
         {
             Applied,
-            Rejected,
             Interviewed,
-            Offered
+            Offered,
+            Rejected
+        }
+        static public void navigate(Form CurrentPage, Form NewPage)
+        {
+            CurrentPage.Close();
+            Thread t = new Thread(() => Application.Run(NewPage));
+            t.Start();
         }
     }
 }

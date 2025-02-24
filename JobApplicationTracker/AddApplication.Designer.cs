@@ -40,9 +40,16 @@
             this.AddApplicationBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.RejectedStatusBtn = new System.Windows.Forms.RadioButton();
+            this.AppliedStatusBtn = new System.Windows.Forms.RadioButton();
+            this.InterviewedStatusBtn = new System.Windows.Forms.RadioButton();
+            this.OfferedStatusBtn = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -149,11 +156,78 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(287, 20);
             this.dateTimePicker1.TabIndex = 11;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(148, 265);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(89, 42);
+            this.panel3.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Status:";
+            // 
+            // RejectedStatusBtn
+            // 
+            this.RejectedStatusBtn.AutoSize = true;
+            this.RejectedStatusBtn.Location = new System.Drawing.Point(243, 265);
+            this.RejectedStatusBtn.Name = "RejectedStatusBtn";
+            this.RejectedStatusBtn.Size = new System.Drawing.Size(68, 17);
+            this.RejectedStatusBtn.TabIndex = 12;
+            this.RejectedStatusBtn.TabStop = true;
+            this.RejectedStatusBtn.Text = "Rejected";
+            this.RejectedStatusBtn.UseVisualStyleBackColor = true;
+            // 
+            // AppliedStatusBtn
+            // 
+            this.AppliedStatusBtn.AutoSize = true;
+            this.AppliedStatusBtn.Location = new System.Drawing.Point(243, 288);
+            this.AppliedStatusBtn.Name = "AppliedStatusBtn";
+            this.AppliedStatusBtn.Size = new System.Drawing.Size(60, 17);
+            this.AppliedStatusBtn.TabIndex = 13;
+            this.AppliedStatusBtn.TabStop = true;
+            this.AppliedStatusBtn.Text = "Applied";
+            this.AppliedStatusBtn.UseVisualStyleBackColor = true;
+            // 
+            // InterviewedStatusBtn
+            // 
+            this.InterviewedStatusBtn.AutoSize = true;
+            this.InterviewedStatusBtn.Location = new System.Drawing.Point(317, 265);
+            this.InterviewedStatusBtn.Name = "InterviewedStatusBtn";
+            this.InterviewedStatusBtn.Size = new System.Drawing.Size(80, 17);
+            this.InterviewedStatusBtn.TabIndex = 14;
+            this.InterviewedStatusBtn.TabStop = true;
+            this.InterviewedStatusBtn.Text = "Interviewed";
+            this.InterviewedStatusBtn.UseVisualStyleBackColor = true;
+            // 
+            // OfferedStatusBtn
+            // 
+            this.OfferedStatusBtn.AutoSize = true;
+            this.OfferedStatusBtn.Location = new System.Drawing.Point(317, 290);
+            this.OfferedStatusBtn.Name = "OfferedStatusBtn";
+            this.OfferedStatusBtn.Size = new System.Drawing.Size(60, 17);
+            this.OfferedStatusBtn.TabIndex = 15;
+            this.OfferedStatusBtn.TabStop = true;
+            this.OfferedStatusBtn.Text = "Offered";
+            this.OfferedStatusBtn.UseVisualStyleBackColor = true;
+            // 
             // Add_Application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OfferedStatusBtn);
+            this.Controls.Add(this.InterviewedStatusBtn);
+            this.Controls.Add(this.AppliedStatusBtn);
+            this.Controls.Add(this.RejectedStatusBtn);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.AddApplicationBtn);
@@ -171,6 +245,8 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +266,11 @@
         private System.Windows.Forms.Button AddApplicationBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton RejectedStatusBtn;
+        private System.Windows.Forms.RadioButton AppliedStatusBtn;
+        private System.Windows.Forms.RadioButton InterviewedStatusBtn;
+        private System.Windows.Forms.RadioButton OfferedStatusBtn;
     }
 }

@@ -19,7 +19,7 @@ namespace JobApplicationTracker
 
         private void BackToJobApplicationsBtn_Click(object sender, EventArgs e)
         {
-
+            Constants.navigate(this, new JobApplications());
         }
 
         private void EditJobApplicationBtn_Click(object sender, EventArgs e)

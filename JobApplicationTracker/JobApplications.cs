@@ -19,12 +19,13 @@ namespace JobApplicationTracker
 
         private void BackToVisualChartBtn_Click(object sender, EventArgs e)
         {
-            Pages.navigate(this, "Visualchart");
+            Constants.navigate(this, new VisualChart());
         }
 
         private void AddApplicationBtn_Click(object sender, EventArgs e)
         {
-            Pages.navigate(this, "AddApplication");
+            Constants.navigate(this, new Add_Application());
         }
+
     }
 }

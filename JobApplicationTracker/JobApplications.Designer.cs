@@ -1,4 +1,5 @@
-﻿namespace JobApplicationTracker
+﻿using static JobApplicationTracker.ApplicationsTracker;
+namespace JobApplicationTracker
 {
     partial class JobApplications
     {
@@ -62,6 +63,10 @@
             this.listView1.Size = new System.Drawing.Size(334, 214);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            /*this.listView1.Items.AddRange(JobApplicationTracker.ApplicationsTracker.GetApplicationsAsListViewItems(Constants.Status.Rejected));
+            this.listView1.Items.AddRange(ApplicationsTracker.GetApplicationsAsListViewItems(Constants.Status.Applied));
+            this.listView1.Items.AddRange(ApplicationsTracker.GetApplicationsAsListViewItems(Constants.Status.Interviewed));
+            this.listView1.Items.AddRange(ApplicationsTracker.GetApplicationsAsListViewItems(Constants.Status.Offered));*/
             // 
             // label1
             // 
@@ -93,5 +98,6 @@
         private System.Windows.Forms.Button AddApplicationBtn;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label1;
+
     }
 }

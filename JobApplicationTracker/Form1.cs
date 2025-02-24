@@ -25,7 +25,7 @@ namespace JobApplicationTracker
 
         private void VisualChartBtn_Click(object sender, EventArgs e)
         {
-            Pages.navigate(this,"VisualChart");
+            Constants.navigate(this, new VisualChart());
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)

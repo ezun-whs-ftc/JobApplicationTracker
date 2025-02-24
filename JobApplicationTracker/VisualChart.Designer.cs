@@ -139,17 +139,27 @@ namespace JobApplicationTracker
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Rejected";
-            series1.Points.Add(JobApplicationTracker.ApplicationsTracker.NumberOfApplications(Constants.Status.Rejected));
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.Points.AddXY("Rejected", ApplicationsTracker.NumberOfApplications(Status.Rejected));
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Applied";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series2.Points.AddXY("Applied", ApplicationsTracker.NumberOfApplications(Status.Applied));
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Interviewed";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series3.Points.AddXY("Interviewed", ApplicationsTracker.NumberOfApplications(Status.Interviewed));
             series4.ChartArea = "ChartArea1";
             series4.Legend = "Legend1";
             series4.Name = "Offered";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series4.Points.AddXY("Offered", ApplicationsTracker.NumberOfApplications(Status.Offered));
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
@@ -172,7 +182,9 @@ namespace JobApplicationTracker
             this.Text = "VisualChart";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            //this.Load += new System.EventHandler(this.VisualChart_Load);
             this.ResumeLayout(false);
+            //this.PerformLayout();
 
         }
 

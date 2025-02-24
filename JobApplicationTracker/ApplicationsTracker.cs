@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static JobApplicationTracker.Constants;
 namespace JobApplicationTracker
 {
@@ -70,6 +71,16 @@ namespace JobApplicationTracker
         {
             return GetApplications(x).Count;
         }
-
+        public static ListViewItem[] GetApplicationsAsListViewItems(Status x)
+        {
+            List<JobApplication> applications = GetApplications(x);
+            ListViewItem[] items = new ListViewItem[applications.Count];
+            for(int i = 0; i < applications.Count; i++)
+            {
+                items[i] = new ListViewItem(applications[i].GetCompanyName());
+            }
+            return items;
+        }
+        
     }
 }

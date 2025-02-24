@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using static JobApplicationTracker.Constants;
 namespace JobApplicationTracker
 {
     public partial class Add_Application : Form
@@ -20,13 +20,31 @@ namespace JobApplicationTracker
 
         private void AddApplicationBtn_Click(object sender, EventArgs e)
         {
-            ApplicationsTracker.AddApplication(new JobApplication(textBox1.Text, dateTimePicker1.Value));
+            ApplicationsTracker.AddApplication(new JobApplication(textBox1.Text, dateTimePicker1.Value,AddStatus()));
+            textBox1.Clear();
+            dateTimePicker1.Value = DateTime.Now;
         }
 
         private void BackToJobApplicationBtn_Click(object sender, EventArgs e)
         {
-            Pages.navigate(this, "JobApplications");
+            Constants.navigate(this, new JobApplications());
         }
 
+        private Status AddStatus()
+        {
+            if (RejectedStatusBtn.Checked)
+            {
+                return Status.Rejected;
+            } else if(InterviewedStatusBtn.Checked)
+            {
+                return Status.Interviewed;
+            } else if (OfferedStatusBtn.Checked)
+            {
+                return Status.Offered;
+            } else
+            {
+                return Status.Applied;
+            }
+        }
     }
 }
