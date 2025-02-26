@@ -33,7 +33,7 @@ namespace JobApplicationTracker
             }
         }
 
-        public void RemoveApplication(JobApplication application)
+        public static void RemoveApplication(JobApplication application)
         {
             switch(application.GetStatus())
             {
@@ -67,7 +67,11 @@ namespace JobApplicationTracker
                 default: return null;
             }
         }
-        public static double NumberOfApplications(Status x)
+        public static JobApplication GetApplication(Status x, int index)
+        {
+            return GetApplications(x)[index];
+        }
+        public static int NumberOfApplications(Status x)
         {
             return GetApplications(x).Count;
         }
@@ -80,7 +84,7 @@ namespace JobApplicationTracker
                 items[i] = new ListViewItem(applications[i].GetCompanyName());
             }
             return items;
-        }
+        } 
         
     }
 }
