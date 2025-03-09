@@ -1,4 +1,4 @@
-﻿using static JobApplicationTracker.ApplicationsTracker;
+﻿
 using static JobApplicationTracker.Constants;
 namespace JobApplicationTracker
 {

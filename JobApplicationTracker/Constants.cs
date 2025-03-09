@@ -23,5 +23,19 @@ namespace JobApplicationTracker
             Thread t = new Thread(() => Application.Run(NewPage));
             t.Start();
         }
+        internal static class readOnly
+        {
+            private static bool isReadOnly = true;
+            public static bool getReadOnly()
+            {
+                return isReadOnly;
+            }
+            public static void setReadOnly()
+            {
+                isReadOnly = !isReadOnly;
+            }
+        }
+
+       
     }
 }

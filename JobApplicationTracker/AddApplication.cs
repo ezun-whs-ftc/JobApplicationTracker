@@ -20,7 +20,8 @@ namespace JobApplicationTracker
 
         private void AddApplicationBtn_Click(object sender, EventArgs e)
         {
-            ApplicationsTracker.AddApplication(new JobApplication(textBox1.Text, dateTimePicker1.Value,AddStatus()));
+            JobApplicationService service = new JobApplicationService();
+            service.AddJobApplication(new JobApplication(textBox1.Text, dateTimePicker1.Value, AddStatus()));
             textBox1.Clear();
             dateTimePicker1.Value = DateTime.Now;
         }
