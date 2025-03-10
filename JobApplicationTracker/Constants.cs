@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace JobApplicationTracker
 {
-    internal class Constants
+  public  class Constants
     {
         public enum Status
         {

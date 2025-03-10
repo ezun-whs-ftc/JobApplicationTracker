@@ -16,15 +16,16 @@ namespace JobApplicationTracker
     public partial class ApplicationView : Form
     {
         private int count = 0;
-        public ApplicationView()
+
+        public ApplicationView(String x,String companyName,String dateApplied)
         {
             InitializeComponent();
-            LoadJobApplications();
+            LoadJobApplications(x,companyName,dateApplied);
         }
 
         private void BackToJobApplicationsBtn_Click(object sender, EventArgs e)
         {
-            Constants.navigate(this, new JobApplications());
+            Constants.navigate(this, new JobApplications(AddStatus()));
         }
 
         private void EditJobApplicationBtn_Click(object sender, EventArgs e)
@@ -38,10 +39,11 @@ namespace JobApplicationTracker
             }
             Constants.readOnly.setReadOnly();
         }
-        private void LoadJobApplications()
+        private void LoadJobApplications(String x, String companyName, String dateApplied)
         {
-            JobApplicationService service = new JobApplicationService();
-            textBox1.Text= service.GetJobApplications().CompanyName;
+            this.textBox1.Text = companyName;
+            dateTimePicker1.Value = DateTime.Parse(dateApplied);
+            Convert(x);
         }
 
         private Status AddStatus()
@@ -63,7 +65,23 @@ namespace JobApplicationTracker
                 return Status.Applied;
             }
         }
-
+        private void Convert(String x)
+        {
+            if (x == "rejected")
+            {
+                RejectedBtn.Checked = true;
+            } else if(x == "Applied")
+            {
+                AppliedBtn.Checked = true;
+            } else if(x == "Interviewed")
+            {
+                InterviewedBtn.Checked = true;
+            }
+            else
+            {
+               OfferedBtn.Checked = true;
+            }
+        }
         
     }
 }

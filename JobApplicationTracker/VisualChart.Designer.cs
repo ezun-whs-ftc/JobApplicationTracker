@@ -166,7 +166,7 @@ namespace JobApplicationTracker
             this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(800, 344);
             this.chart1.TabIndex = 4;
-            this.chart1.Text = "chart1";
+            this.chart1.Text = "chart1";   
             // 
             // VisualChart
             // 
