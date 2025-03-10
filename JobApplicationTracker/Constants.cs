@@ -26,14 +26,10 @@ namespace JobApplicationTracker
         internal static class readOnly
         {
             private static bool isReadOnly = true;
-            public static bool getReadOnly()
-            {
-                return isReadOnly;
-            }
-            public static void setReadOnly()
-            {
-                isReadOnly = !isReadOnly;
-            }
+            public static bool getReadOnly() => isReadOnly;
+
+            public static void setReadOnly() => isReadOnly = !isReadOnly;
+
         }
 
        
