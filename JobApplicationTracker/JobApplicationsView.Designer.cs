@@ -1,7 +1,7 @@
-﻿using static JobApplicationTracker.ApplicationsTracker;
+﻿
 namespace JobApplicationTracker
 {
-    partial class JobApplications
+    partial class JobApplicationsView
     {
         /// <summary>
         /// Required designer variable.

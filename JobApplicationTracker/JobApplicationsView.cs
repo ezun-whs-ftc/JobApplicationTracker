@@ -10,11 +10,11 @@ using System.Windows.Forms;
 using static JobApplicationTracker.Constants;
 namespace JobApplicationTracker
 {
-    public partial class JobApplications : Form
+    public partial class JobApplicationsView : Form
     {
         private JobApplicationService service = new JobApplicationService();
         private Status status;
-        public JobApplications(Status x)
+        public JobApplicationsView(Status x)
         {
             InitializeComponent();
             status = x;

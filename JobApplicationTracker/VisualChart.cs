@@ -35,7 +35,7 @@ namespace JobApplicationTracker
 
         private void GoToJobApplicationsBtn_Click(object sender, EventArgs e)
         {
-            Constants.navigate(this, new JobApplications(Which));
+            Constants.navigate(this, new JobApplicationsView(Which));
         }
 
         private void RejectedOptionBtn_Click(object sender, EventArgs e)

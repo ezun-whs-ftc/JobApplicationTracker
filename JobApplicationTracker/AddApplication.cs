@@ -28,7 +28,7 @@ namespace JobApplicationTracker
 
         private void BackToJobApplicationBtn_Click(object sender, EventArgs e)
         {
-            Constants.navigate(this, new JobApplications(AddStatus()));
+            Constants.navigate(this, new JobApplicationsView(AddStatus()));
         }
 
         private Status AddStatus()

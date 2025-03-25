@@ -19,11 +19,7 @@ namespace JobApplicationTracker
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            Database.SetInitializer(new CreateDatabaseIfNotExists<JobApplicationContext>());
-            using (var context = new JobApplicationContext())
-            {
-                context.Database.Initialize(force: true);
-            }
+           
 
             
         }
