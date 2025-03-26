@@ -22,10 +22,15 @@ namespace JobApplicationTracker
         }
         private void VisualChart_Load()
         {
-            this.chart1.Series["rejected"].Points.AddXY("Rejected", service.GetJobApplicationsByStatus(Constants.Status.Rejected).Count);
-            this.chart1.Series["Applied"].Points.AddXY("Applied", service.GetJobApplicationsByStatus(Constants.Status.Applied).Count);
-            this.chart1.Series["Interviewed"].Points.AddXY("Interviewed", service.GetJobApplicationsByStatus(Constants.Status.Interviewed).Count);
-            this.chart1.Series["Offered"].Points.AddXY("Offered", service.GetJobApplicationsByStatus(Constants.Status.Offered).Count);
+            // TODO: This line of code loads data into the 'jobApplicationDataSet.JobApplication' table. You can move, or remove it, as needed.
+            this.jobApplicationTableAdapter.Fill(this.jobApplicationDataSet.JobApplication);
+            this.chart1.Series["Applications"].Points.Clear();
+            
+
+            this.chart1.Series["Applications"].Points.AddXY("Rejected", service.GetJobApplicationsByStatus(Constants.Status.Rejected).Count);
+            this.chart1.Series["Applications"].Points.AddXY("Applied", service.GetJobApplicationsByStatus(Constants.Status.Applied).Count);
+            this.chart1.Series["Applications"].Points.AddXY("Interviewed", service.GetJobApplicationsByStatus(Constants.Status.Interviewed).Count);
+            this.chart1.Series["Applications"].Points.AddXY("Offered", service.GetJobApplicationsByStatus(Constants.Status.Offered).Count);
         }
 
         private void BackToHomePageBtn_Click(object sender, EventArgs e)
@@ -58,6 +63,7 @@ namespace JobApplicationTracker
             Which = Status.Offered;
         }
 
-       
+
+        
     }
 }

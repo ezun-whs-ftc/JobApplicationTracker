@@ -2,7 +2,7 @@ using JobApplicationTracker.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.IO;
 using System.Configuration;
 using static JobApplicationTracker.Models.DbaseNames;
@@ -16,34 +16,27 @@ namespace JobApplicationTracker
 
         public JobApplicationService()
         {
-            
-                //Gets and Builds the Application Path of the applicatino location
-                string basePath = CurrentPath.GetDbasePath() + "\\";
-                //Gets name of the database
-                string dbName = DbaseNames.JobApplicationDBase;
-                //Combines the Path with the Database
-                string path = Path.Combine(basePath, dbName); // Safely combines paths
+            // Gets and builds the application path of the database location
+            string basePath = CurrentPath.GetDbasePath() + "\\";
+            string dbName = DbaseNames.JobApplicationDBase;
+            string path = Path.Combine(basePath, dbName);
 
-                //Gets the Connection String from the App.Config file
-                string dbase = ConfigurationManager.ConnectionStrings["AccessDbODBC"].ConnectionString;
+            // Gets the connection string from App.config
+            string dbase = ConfigurationManager.ConnectionStrings["AccessDBOleDB"].ConnectionString;
+            string cs = string.Format(dbase,path);
 
-                //Replaces {0} and {1} with correct values
-                string cs = string.Format(dbase, DbaseNames.LabDriver, path);
-
-                //Connection String we will use
-                _connectionString = cs;
-            
+            _connectionString = cs;
         }
 
         public void AddJobApplication(JobApplication jobApplication)
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new OleDbConnection(_connectionString))
                 {
                     connection.Open();
-                    var query = "INSERT INTO JobApplications (CompanyName, DateApplied, Status) VALUES (@CompanyName, @DateApplied, @Status)";
-                    using (var command = new SqlCommand(query, connection))
+                    var query = "INSERT INTO JobApplication (CompanyName, DateApplied, Status) VALUES (@CompanyName, @DateApplied, @Status)";
+                    using (var command = new OleDbCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@CompanyName", jobApplication.CompanyName);
                         command.Parameters.AddWithValue("@DateApplied", jobApplication.DateApplied);
@@ -54,7 +47,7 @@ namespace JobApplicationTracker
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"[Add] Error: {ex.Message}");
             }
         }
 
@@ -63,23 +56,23 @@ namespace JobApplicationTracker
             var jobApplications = new List<JobApplication>();
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new OleDbConnection(_connectionString))
                 {
                     connection.Open();
-                    var query = "SELECT * FROM JobApplications";
-                    using (var command = new SqlCommand(query, connection))
+                    var query = "SELECT * FROM JobApplication";
+                    using (var command = new OleDbCommand(query, connection))
                     {
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 jobApplications.Add(new JobApplication
-                                {
-                                    Id = reader.GetInt32(0),
-                                    reader.GetString(1),
-                                    reader.GetDateTime(2),
-                                    (Status)reader.GetInt32(3)
-                                });
+                                (
+                                    //Convert.ToInt32(reader["Id"]),
+                                    reader["CompanyName"].ToString(),
+                                    Convert.ToDateTime(reader["DateApplied"]),
+                                    convertStringToStatus(reader["Status"].ToString())
+                                ));
                             }
                         }
                     }
@@ -87,7 +80,7 @@ namespace JobApplicationTracker
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"[GetAll] Error: {ex.Message}");
             }
             return jobApplications;
         }
@@ -97,11 +90,11 @@ namespace JobApplicationTracker
             JobApplication jobApplication = null;
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new OleDbConnection(_connectionString))
                 {
                     connection.Open();
-                    var query = "SELECT * FROM JobApplications WHERE Id = @Id";
-                    using (var command = new SqlCommand(query, connection))
+                    var query = "SELECT * FROM JobApplication WHERE Id = @Id";
+                    using (var command = new OleDbCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Id", id);
                         using (var reader = command.ExecuteReader())
@@ -109,12 +102,12 @@ namespace JobApplicationTracker
                             if (reader.Read())
                             {
                                 jobApplication = new JobApplication
-                                {
-                                    Id = reader.GetInt32(0),
-                                    CompanyName = reader.GetString(1),
-                                    DateApplied = reader.GetDateTime(2),
-                                    Status = (Status) reader.GetString(3)
-                                };
+                                (
+                                   // Id = Convert.ToInt32(reader["Id"]),
+                                    reader["CompanyName"].ToString(),
+                                    Convert.ToDateTime(reader["DateApplied"]),
+                                    convertStringToStatus(reader["Status"].ToString())
+                                );
                             }
                         }
                     }
@@ -122,7 +115,7 @@ namespace JobApplicationTracker
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"[GetById] Error: {ex.Message}");
             }
             return jobApplication;
         }
@@ -131,11 +124,11 @@ namespace JobApplicationTracker
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new OleDbConnection(_connectionString))
                 {
                     connection.Open();
-                    var query = "UPDATE JobApplications SET CompanyName = @CompanyName, DateApplied = @DateApplied, Status = @Status WHERE Id = @Id";
-                    using (var command = new SqlCommand(query, connection))
+                    var query = "UPDATE JobApplication SET CompanyName = @CompanyName, DateApplied = @DateApplied, Status = @Status WHERE Id = @Id";
+                    using (var command = new OleDbCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@CompanyName", jobApplication.CompanyName);
                         command.Parameters.AddWithValue("@DateApplied", jobApplication.DateApplied);
@@ -147,7 +140,7 @@ namespace JobApplicationTracker
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"[Update] Error: {ex.Message}");
             }
         }
 
@@ -155,11 +148,11 @@ namespace JobApplicationTracker
         {
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new OleDbConnection(_connectionString))
                 {
                     connection.Open();
-                    var query = "DELETE FROM JobApplications WHERE Id = @Id";
-                    using (var command = new SqlCommand(query, connection))
+                    var query = "DELETE FROM JobApplication WHERE Id = @Id";
+                    using (var command = new OleDbCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Id", id);
                         command.ExecuteNonQuery();
@@ -168,7 +161,7 @@ namespace JobApplicationTracker
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"[Delete] Error: {ex.Message}");
             }
         }
 
@@ -177,24 +170,24 @@ namespace JobApplicationTracker
             var jobApplications = new List<JobApplication>();
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new OleDbConnection(_connectionString))
                 {
                     connection.Open();
-                    var query = "SELECT * FROM JobApplications WHERE Status = @Status";
-                    using (var command = new SqlCommand(query, connection))
+                    var query = "SELECT * FROM JobApplication WHERE Status = @Status";
+                    using (var command = new OleDbCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Status", status);
+                        command.Parameters.AddWithValue("@Status", (int)status);
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 jobApplications.Add(new JobApplication
-                                {
-                                    Id = reader.GetInt32(0),
-                                    CompanyName = reader.GetString(1),
-                                    DateApplied = reader.GetDateTime(2),
-                                    Status = (Status)reader.GetString(3)
-                                });
+                                (
+                                    //Id = Convert.ToInt32(reader["Id"]),
+                                    reader["CompanyName"].ToString(),
+                                    Convert.ToDateTime(reader["DateApplied"]),
+                                    convertStringToStatus(reader["Status"].ToString())
+                                ));
                             }
                         }
                     }
@@ -202,7 +195,7 @@ namespace JobApplicationTracker
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine($"[GetByStatus] Error: {ex.Message}");
             }
             return jobApplications;
         }

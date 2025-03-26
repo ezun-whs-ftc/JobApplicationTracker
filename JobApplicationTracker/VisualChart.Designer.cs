@@ -30,13 +30,10 @@ namespace JobApplicationTracker
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.OfferedOptionBtn = new System.Windows.Forms.Button();
             this.InterviewedOptionBtn = new System.Windows.Forms.Button();
@@ -46,8 +43,13 @@ namespace JobApplicationTracker
             this.GoToJobApplicationsBtn = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.jobApplicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jobApplicationDataSet = new JobApplicationTracker.JobApplicationDataSet();
+            this.jobApplicationTableAdapter = new JobApplicationTracker.JobApplicationDataSetTableAdapters.JobApplicationTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobApplicationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobApplicationDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,16 +58,18 @@ namespace JobApplicationTracker
             this.panel1.Controls.Add(this.InterviewedOptionBtn);
             this.panel1.Controls.Add(this.AppliedOptionBtn);
             this.panel1.Controls.Add(this.RejectedOptionBtn);
-            this.panel1.Location = new System.Drawing.Point(322, 378);
+            this.panel1.Location = new System.Drawing.Point(429, 465);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 60);
+            this.panel1.Size = new System.Drawing.Size(219, 74);
             this.panel1.TabIndex = 0;
             // 
             // OfferedOptionBtn
             // 
-            this.OfferedOptionBtn.Location = new System.Drawing.Point(84, 32);
+            this.OfferedOptionBtn.Location = new System.Drawing.Point(112, 39);
+            this.OfferedOptionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.OfferedOptionBtn.Name = "OfferedOptionBtn";
-            this.OfferedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.OfferedOptionBtn.Size = new System.Drawing.Size(100, 28);
             this.OfferedOptionBtn.TabIndex = 3;
             this.OfferedOptionBtn.Text = "Offered";
             this.OfferedOptionBtn.UseVisualStyleBackColor = true;
@@ -73,9 +77,10 @@ namespace JobApplicationTracker
             // 
             // InterviewedOptionBtn
             // 
-            this.InterviewedOptionBtn.Location = new System.Drawing.Point(3, 32);
+            this.InterviewedOptionBtn.Location = new System.Drawing.Point(4, 39);
+            this.InterviewedOptionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.InterviewedOptionBtn.Name = "InterviewedOptionBtn";
-            this.InterviewedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.InterviewedOptionBtn.Size = new System.Drawing.Size(100, 28);
             this.InterviewedOptionBtn.TabIndex = 2;
             this.InterviewedOptionBtn.Text = "Interviewed";
             this.InterviewedOptionBtn.UseVisualStyleBackColor = true;
@@ -83,9 +88,10 @@ namespace JobApplicationTracker
             // 
             // AppliedOptionBtn
             // 
-            this.AppliedOptionBtn.Location = new System.Drawing.Point(84, 3);
+            this.AppliedOptionBtn.Location = new System.Drawing.Point(112, 4);
+            this.AppliedOptionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AppliedOptionBtn.Name = "AppliedOptionBtn";
-            this.AppliedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.AppliedOptionBtn.Size = new System.Drawing.Size(100, 28);
             this.AppliedOptionBtn.TabIndex = 1;
             this.AppliedOptionBtn.Text = "Applied";
             this.AppliedOptionBtn.UseVisualStyleBackColor = true;
@@ -93,9 +99,10 @@ namespace JobApplicationTracker
             // 
             // RejectedOptionBtn
             // 
-            this.RejectedOptionBtn.Location = new System.Drawing.Point(3, 3);
+            this.RejectedOptionBtn.Location = new System.Drawing.Point(4, 4);
+            this.RejectedOptionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.RejectedOptionBtn.Name = "RejectedOptionBtn";
-            this.RejectedOptionBtn.Size = new System.Drawing.Size(75, 23);
+            this.RejectedOptionBtn.Size = new System.Drawing.Size(100, 28);
             this.RejectedOptionBtn.TabIndex = 0;
             this.RejectedOptionBtn.Text = "Rejected";
             this.RejectedOptionBtn.UseVisualStyleBackColor = true;
@@ -103,9 +110,10 @@ namespace JobApplicationTracker
             // 
             // BackToHomePageBtn
             // 
-            this.BackToHomePageBtn.Location = new System.Drawing.Point(12, 390);
+            this.BackToHomePageBtn.Location = new System.Drawing.Point(16, 480);
+            this.BackToHomePageBtn.Margin = new System.Windows.Forms.Padding(4);
             this.BackToHomePageBtn.Name = "BackToHomePageBtn";
-            this.BackToHomePageBtn.Size = new System.Drawing.Size(108, 48);
+            this.BackToHomePageBtn.Size = new System.Drawing.Size(144, 59);
             this.BackToHomePageBtn.TabIndex = 1;
             this.BackToHomePageBtn.Text = "Back to home page";
             this.BackToHomePageBtn.UseVisualStyleBackColor = true;
@@ -113,9 +121,10 @@ namespace JobApplicationTracker
             // 
             // GoToJobApplicationsBtn
             // 
-            this.GoToJobApplicationsBtn.Location = new System.Drawing.Point(680, 390);
+            this.GoToJobApplicationsBtn.Location = new System.Drawing.Point(907, 480);
+            this.GoToJobApplicationsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.GoToJobApplicationsBtn.Name = "GoToJobApplicationsBtn";
-            this.GoToJobApplicationsBtn.Size = new System.Drawing.Size(108, 48);
+            this.GoToJobApplicationsBtn.Size = new System.Drawing.Size(144, 59);
             this.GoToJobApplicationsBtn.TabIndex = 2;
             this.GoToJobApplicationsBtn.Text = "Go to job applications";
             this.GoToJobApplicationsBtn.UseVisualStyleBackColor = true;
@@ -123,9 +132,10 @@ namespace JobApplicationTracker
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(0, 344);
+            this.progressBar1.Location = new System.Drawing.Point(0, 423);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(800, 10);
+            this.progressBar1.Size = new System.Drawing.Size(1067, 12);
             this.progressBar1.TabIndex = 3;
             // 
             // chart1
@@ -134,57 +144,51 @@ namespace JobApplicationTracker
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Location = new System.Drawing.Point(0, 13);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Rejected";
+            series1.Name = "Applications";
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            //series1.Points.AddXY("Rejected", NumberOfApplications(Status.Rejected));
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Applied";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            //series2.Points.AddXY("Applied", NumberOfApplications(Status.Applied));
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Interviewed";
-            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            //series3.Points.AddXY("Interviewed", NumberOfApplications(Status.Interviewed));
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Offered";
-            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            //series4.Points.AddXY("Offered", NumberOfApplications(Status.Offered));
             this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(800, 344);
+            this.chart1.Size = new System.Drawing.Size(1067, 410);
             this.chart1.TabIndex = 4;
-            this.chart1.Text = "chart1";   
+            this.chart1.Text = "chart1";
+            // 
+            // jobApplicationBindingSource
+            // 
+            this.jobApplicationBindingSource.DataMember = "JobApplication";
+            this.jobApplicationBindingSource.DataSource = this.jobApplicationDataSet;
+            // 
+            // jobApplicationDataSet
+            // 
+            this.jobApplicationDataSet.DataSetName = "JobApplicationDataSet";
+            this.jobApplicationDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jobApplicationTableAdapter
+            // 
+            this.jobApplicationTableAdapter.ClearBeforeFill = true;
             // 
             // VisualChart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.GoToJobApplicationsBtn);
             this.Controls.Add(this.BackToHomePageBtn);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisualChart";
             this.Text = "VisualChart";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            //this.Load += new System.EventHandler(this.VisualChart_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.jobApplicationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobApplicationDataSet)).EndInit();
             this.ResumeLayout(false);
-            //this.PerformLayout();
 
         }
 
@@ -199,5 +203,8 @@ namespace JobApplicationTracker
         private System.Windows.Forms.Button GoToJobApplicationsBtn;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private JobApplicationDataSet jobApplicationDataSet;
+        private System.Windows.Forms.BindingSource jobApplicationBindingSource;
+        private JobApplicationDataSetTableAdapters.JobApplicationTableAdapter jobApplicationTableAdapter;
     }
 }

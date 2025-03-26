@@ -31,7 +31,21 @@ namespace JobApplicationTracker
             public static void setReadOnly() => isReadOnly = !isReadOnly;
 
         }
-
-       
+        public static Status convertStringToStatus(String x)
+        {
+            switch (x)
+            {
+                case "Applied":
+                    return Status.Applied;
+                case "Interviewed":
+                    return Status.Interviewed;
+                case "Offered":
+                    return Status.Offered;
+                case "Rejected":
+                    return Status.Rejected;
+                default:
+                    return Status.Applied;
+            }
+        }
     }
 }
